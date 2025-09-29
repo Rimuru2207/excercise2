@@ -78,7 +78,7 @@ body {
   position: relative;
   z-index: 2;
 }
-}
+
 .floating-shapes .shape {
   position: absolute;
   border: 2px solid #7d5aff;
