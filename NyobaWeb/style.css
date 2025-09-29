@@ -48,6 +48,19 @@ body {
 .actions .btn-login:hover {
   background: #b45309;
 }
+.actions .login-btn {
+  padding: 10px 16px;
+  background: #D97706;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.actions .login-btn:hover {
+  background: #b45309;
+}
 
 /* Hero / section umum */
 .hero {
@@ -71,12 +84,6 @@ body {
   overflow: hidden;
   pointer-events: none;
   z-index: 1; /* di belakang */
-}
-
-/* Semua konten hero di atas shapes */
-.hero > *:not(.floating-shapes) {
-  position: relative;
-  z-index: 2;
 }
 
 .floating-shapes .shape {
