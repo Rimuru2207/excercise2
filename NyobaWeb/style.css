@@ -5,13 +5,11 @@
   box-sizing: border-box;
 }
 
-/* Body & background */
 body {
-  background: radial-gradient(circle at bottom, #2c235a, #000);
+  font-family: 'Segoe UI', sans-serif;
+  background: #071124;
   color: white;
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Navbar */
@@ -19,62 +17,49 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: rgba(0, 0, 0, 0.7);
+  padding: 16px 32px;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
+
 .navbar .logo {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  color: white;
+  color: #fff;
 }
-.navbar nav a {
-  color: white;
-  margin-left: 20px;
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
   text-decoration: none;
-  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
 }
-.navbar nav a:hover {
+
+.navbar ul li a:hover {
   color: #D97706;
 }
-.actions .btn-login {
-  padding: 10px 16px;
-  background: #D97706;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-.actions .btn-login:hover {
-  background: #b45309;
-}
-.actions .login-btn {
-  padding: 10px 16px;
-  background: #D97706;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s;
-}
 
-.actions .login-btn:hover {
-  background: #b45309;
-}
-
-/* Hero / section umum */
+/* Hero */
 .hero {
-  position: relative;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: calc(100vh - 80px); /* kira-kira tinggi navbar */
+  align-items: center;
+  position: relative;
+  padding-top: 60px;
   text-align: center;
-  padding: 20px;
 }
 
-/* Floating shapes selalu di belakang */
+/* Floating shapes background */
 .floating-shapes {
   position: absolute;
   top: 0;
@@ -83,121 +68,76 @@ body {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1; /* di belakang */
+  z-index: 1;
 }
 
-.floating-shapes .shape {
-  position: absolute;
-  border: 2px solid #7d5aff;
-  border-radius: 20%;
-  opacity: 0.8;
-  animation: float 5s infinite ease-in-out;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+.hero > *:not(.floating-shapes) {
+  position: relative;
+  z-index: 2;
 }
 
-/* Index teks */
-#uiIndex h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-#uiIndex h2 {
-  font-size: 48px;
-  background: linear-gradient(to right, #e4e4e4, #a8d8ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Content boxes */
+.content-box {
+  display: none;
 }
 
-/* Search UI */
-#uiSearch input {
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  font-size: 16px;
-  margin-bottom: 16px;
+.content-box.active {
+  display: block;
 }
-#uiSearch input::placeholder {
-  color: #aaa;
+
+/* Search Box */
+.search-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  border-radius: 12px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
 }
-#uiSearch button {
-  padding: 10px 16px;
-  background: #D97706;
-  color: #fff;
+
+.search-box input {
+  padding: 10px;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-#uiSearch button:hover {
-  background: #b45309;
-}
-#searchResult {
-  margin-top: 20px;
-  font-size: 18px;
+  outline: none;
 }
 
-/* Login UI */
+/* Login Card */
 .login-card {
   background: rgba(0, 0, 0, 0.85);
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   width: 320px;
-}
-.login-card h2 {
-  color: #fff;
-  margin-bottom: 24px;
-}
-.login-card label {
-  display: block;
-  color: #94a3b8;
-  margin-bottom: 8px;
-  font-size: 14px;
   text-align: left;
-}
-.login-card input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 15px;
-}
-.login-card .link {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 14px;
-  color: #94a3b8;
-}
-.login-card .link a {
-  color: #D97706;
-  text-decoration: none;
+  margin: auto;
 }
 
-.login-card button {
+.login-card h2 {
+  margin-bottom: 20px;
+}
+
+.login-card input {
   width: 100%;
   padding: 12px;
+  margin-bottom: 16px;
   border: none;
   border-radius: 8px;
+  outline: none;
+}
+
+/* Buttons */
+.btn-login {
   background: #D97706;
   color: #071124;
   font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Responsive (optional) */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-  }
-  .navbar nav {
-    margin-top: 10px;
-  }
+.btn-login:hover {
+  background: #b45309;
 }
