@@ -79,51 +79,53 @@ body {
 /* Content boxes */
 .content-box {
   display: none;
+  animation: fadeIn 0.5s ease;
 }
 
 .content-box.active {
   display: block;
 }
 
-/* Search Box */
-.search-box {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 24px;
-  border-radius: 12px;
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.search-box input {
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-}
-
-/* Login Card */
-.login-card {
+/* Card (seragam untuk Home, Search, Login) */
+.card {
   background: rgba(0, 0, 0, 0.85);
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  width: 320px;
-  text-align: left;
+  width: 400px;
+  max-width: 90%;
   margin: auto;
 }
 
-.login-card h2 {
+.card h1, .card h2 {
   margin-bottom: 20px;
 }
 
-.login-card input {
+.card p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* Inputs */
+.card input {
   width: 100%;
   padding: 12px;
   margin-bottom: 16px;
   border: none;
   border-radius: 8px;
   outline: none;
+}
+
+/* Search box layout */
+.search-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
 }
 
 /* Buttons */
@@ -140,4 +142,10 @@ body {
 
 .btn-login:hover {
   background: #b45309;
+}
+
+/* Animasi fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
