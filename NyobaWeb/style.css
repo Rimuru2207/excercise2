@@ -61,7 +61,7 @@ body {
   padding: 20px;
 }
 
-/* Floating shapes (dipakai di setiap section) */
+/* Floating shapes selalu di belakang */
 .floating-shapes {
   position: absolute;
   top: 0;
@@ -70,6 +70,14 @@ body {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 1; /* di belakang */
+}
+
+/* Semua konten hero di atas shapes */
+.hero > *:not(.floating-shapes) {
+  position: relative;
+  z-index: 2;
+}
 }
 .floating-shapes .shape {
   position: absolute;
