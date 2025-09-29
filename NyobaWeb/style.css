@@ -5,102 +5,173 @@
   box-sizing: border-box;
 }
 
+/* Body & background */
+body {
+  background: radial-gradient(circle at bottom, #2c235a, #000);
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
-  padding: 1rem 2rem;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
 .navbar .logo {
-  color: #fff;
-  font-size: 1.2rem;
+  font-size: 24px;
   font-weight: bold;
+  color: white;
 }
-
 .navbar nav a {
-  color: #fff;
+  color: white;
   margin-left: 20px;
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 16px;
 }
-
 .navbar nav a:hover {
-  color: #00bcd4;
+  color: #D97706;
+}
+.actions .btn-login {
+  padding: 10px 16px;
+  background: #D97706;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.actions .btn-login:hover {
+  background: #b45309;
 }
 
-/* Hero Section */
+/* Hero / section umum */
 .hero {
-  height: calc(100vh - 60px);
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px); /* kira-kira tinggi navbar */
   text-align: center;
-  background: #f4f4f4;
+  padding: 20px;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+/* Floating shapes (dipakai di setiap section) */
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.floating-shapes .shape {
+  position: absolute;
+  border: 2px solid #7d5aff;
+  border-radius: 20%;
+  opacity: 0.8;
+  animation: float 5s infinite ease-in-out;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.hero h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+/* Index teks */
+#uiIndex h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+#uiIndex h2 {
+  font-size: 48px;
+  background: linear-gradient(to right, #e4e4e4, #a8d8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Login Card */
+/* Search UI */
+#uiSearch input {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+#uiSearch input::placeholder {
+  color: #aaa;
+}
+#uiSearch button {
+  padding: 10px 16px;
+  background: #D97706;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+#uiSearch button:hover {
+  background: #b45309;
+}
+#searchResult {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Login UI */
 .login-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  width: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  width: 320px;
 }
-
 .login-card h2 {
-  margin-bottom: 1.5rem;
+  color: #fff;
+  margin-bottom: 24px;
 }
-
 .login-card label {
   display: block;
-  margin-top: 10px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  font-size: 14px;
   text-align: left;
-  font-size: 0.9rem;
 }
-
 .login-card input {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.btn-login {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background: #00bcd4;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
   color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 15px;
 }
-
-.btn-login:hover {
-  background: #0097a7;
-}
-
 .login-card .link {
-  margin-top: 10px;
-  font-size: 0.9rem;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+.login-card .link a {
+  color: #D97706;
+  text-decoration: none;
 }
 
-.login-card .link a {
-  color: #00bcd4;
-  text-decoration: none;
+/* Responsive (optional) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar nav {
+    margin-top: 10px;
+  }
 }
