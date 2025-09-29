@@ -136,7 +136,7 @@ body {
 
 /* Login UI */
 .login-card {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.85);
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
