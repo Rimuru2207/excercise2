@@ -1,6 +1,4 @@
-// ============ GACHA DATA ============
-const gachaData = [
-  // Legendary (5% total)
+var gachaData = [
   {
     name: "Divine Dragon",
     rarity: "legendary",
@@ -15,8 +13,6 @@ const gachaData = [
     image: "https://picsum.photos/200?random=2",
     description: "Reborn from ashes with eternal flames"
   },
-  
-  // Epic (15% total)
   {
     name: "Thunder Knight",
     rarity: "epic",
@@ -31,8 +27,6 @@ const gachaData = [
     image: "https://picsum.photos/200?random=4",
     description: "Master of frozen magic"
   },
-  
-  // Rare (30% total)
   {
     name: "Shadow Assassin",
     rarity: "rare",
@@ -47,8 +41,6 @@ const gachaData = [
     image: "https://picsum.photos/200?random=6",
     description: "Protector of nature"
   },
-  
-  // Common (50% total)
   {
     name: "Brave Warrior",
     rarity: "common",
@@ -79,87 +71,80 @@ const gachaData = [
   }
 ];
 
-// ============ GACHA SYSTEM ============
 function weightedRandom(items) {
-  const totalWeight = items.reduce((sum, item) => sum + item.chance, 0);
-  let random = Math.random() * totalWeight;
-  
-  for (let item of items) {
-    if (random < item.chance) {
-      return item;
-    }
-    random -= item.chance;
+  var totalWeight = 0;
+  for (var i = 0; i < items.length; i++) {
+    totalWeight = totalWeight + items[i].chance;
   }
+  
+  var random = Math.random() * totalWeight;
+  
+  for (var j = 0; j < items.length; j++) {
+    if (random < items[j].chance) {
+      return items[j];
+    }
+    random = random - items[j].chance;
+  }
+  
   return items[items.length - 1];
 }
 
 function performGacha() {
-  const btnRoll = document.getElementById("btnRoll");
-  const rollDisplay = document.getElementById("rollDisplay");
-  const gachaResult = document.getElementById("gachaResult");
+  var btnRoll = document.getElementById("btnRoll");
+  var rollDisplay = document.getElementById("rollDisplay");
+  var gachaResult = document.getElementById("gachaResult");
   
-  // Disable button
   btnRoll.disabled = true;
   gachaResult.style.display = "none";
   
-  // Create rolling animation
   rollDisplay.innerHTML = '<div class="rolling-names" id="rollingNames"></div>';
-  const rollingNames = document.getElementById("rollingNames");
+  var rollingNames = document.getElementById("rollingNames");
   
-  // Add multiple items for rolling effect
-  for (let i = 0; i < 20; i++) {
-    const randomItem = gachaData[Math.floor(Math.random() * gachaData.length)];
-    const item = document.createElement("div");
+  for (var i = 0; i < 20; i++) {
+    var randomItem = gachaData[Math.floor(Math.random() * gachaData.length)];
+    var item = document.createElement("div");
     item.className = "rolling-item";
     item.textContent = randomItem.name;
     item.style.color = getRarityColor(randomItem.rarity);
     rollingNames.appendChild(item);
   }
   
-  // Stop after 3 seconds and show result
-  setTimeout(() => {
-    const result = weightedRandom(gachaData);
+  setTimeout(function() {
+    var result = weightedRandom(gachaData);
     showResult(result);
     btnRoll.disabled = false;
   }, 3000);
 }
 
 function getRarityColor(rarity) {
-  const colors = {
-    common: "#9ca3af",
-    rare: "#3b82f6",
-    epic: "#a855f7",
-    legendary: "#fbbf24"
-  };
-  return colors[rarity] || "#fff";
+  if (rarity === "legendary") return "#fbbf24";
+  if (rarity === "epic") return "#a855f7";
+  if (rarity === "rare") return "#3b82f6";
+  if (rarity === "common") return "#9ca3af";
+  return "#fff";
 }
 
 function showResult(item) {
-  const rollDisplay = document.getElementById("rollDisplay");
-  const gachaResult = document.getElementById("gachaResult");
-  const resultImage = document.getElementById("resultImage");
-  const resultName = document.getElementById("resultName");
-  const resultDescription = document.getElementById("resultDescription");
-  const rarityBadge = document.getElementById("rarityBadge");
-  const resultCard = gachaResult.querySelector(".result-card");
+  var rollDisplay = document.getElementById("rollDisplay");
+  var gachaResult = document.getElementById("gachaResult");
+  var resultImage = document.getElementById("resultImage");
+  var resultName = document.getElementById("resultName");
+  var resultDescription = document.getElementById("resultDescription");
+  var rarityBadge = document.getElementById("rarityBadge");
+  var resultCard = gachaResult.querySelector(".result-card");
   
-  // Clear rolling display
   rollDisplay.innerHTML = '<div class="roll-text">🎉 You got...</div>';
   
-  // Set result data
   resultImage.src = item.image;
   resultName.textContent = item.name;
   resultDescription.textContent = item.description;
   rarityBadge.textContent = item.rarity;
   
-  // Set rarity styling
   resultCard.className = "result-card rarity-" + item.rarity;
   
-  // Show result
   gachaResult.style.display = "block";
   
-  // Scroll ke hasil secara smooth
-  setTimeout(() => {
+  setTimeout(function() {
     gachaResult.scrollIntoView({ 
       behavior: 'smooth', 
       block: 'center' 
@@ -167,104 +152,98 @@ function showResult(item) {
   }, 100);
 }
 
-// ============ FLOATING SHAPES ============
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
 function createShape(section) {
-  const shape = document.createElement("div");
+  var shape = document.createElement("div");
   shape.classList.add("shape");
-  const size = randomInRange(50, 150);
+  var size = randomInRange(50, 150);
   shape.style.width = size + "px";
   shape.style.height = size + "px";
   shape.style.top = randomInRange(0, 70) + "%";
   shape.style.left = randomInRange(0, 90) + "%";
-  const duration = randomInRange(3, 8);
+  var duration = randomInRange(3, 8);
   shape.style.animationDuration = duration + "s";
   section.querySelector(".floating-shapes").appendChild(shape);
-  setTimeout(() => {
+  setTimeout(function() {
     shape.remove();
   }, duration * 1000);
 }
 
 function initFloatingShapes() {
-  const sections = document.querySelectorAll("section.hero");
-  sections.forEach(sec => {
-    setInterval(() => createShape(sec), 1000);
-  });
+  var sections = document.querySelectorAll("section.hero");
+  for (var i = 0; i < sections.length; i++) {
+    (function(sec) {
+      setInterval(function() {
+        createShape(sec);
+      }, 1000);
+    })(sections[i]);
+  }
 }
 
-// ============ UI SWITCHING ============
-document.addEventListener("DOMContentLoaded", () => {
-  const homeLink = document.getElementById("navHome");
-  const gachaLink = document.getElementById("navGacha");
-  const searchLink = document.getElementById("navSearch");
-  const loginLink = document.getElementById("navLogin");
-  const btnStartGacha = document.getElementById("btnStartGacha");
+document.addEventListener("DOMContentLoaded", function() {
+  var homeLink = document.getElementById("navHome");
+  var gachaLink = document.getElementById("navGacha");
+  var searchLink = document.getElementById("navSearch");
+  var loginLink = document.getElementById("navLogin");
+  var btnStartGacha = document.getElementById("btnStartGacha");
   
-  const uiHome = document.getElementById("uiHome");
-  const uiGacha = document.getElementById("uiGacha");
-  const uiSearch = document.getElementById("uiSearch");
-  const uiLogin = document.getElementById("uiLogin");
+  var uiHome = document.getElementById("uiHome");
+  var uiGacha = document.getElementById("uiGacha");
+  var uiSearch = document.getElementById("uiSearch");
+  var uiLogin = document.getElementById("uiLogin");
   
   function showUI(ui) {
-    // Hide all sections
     uiHome.style.display = "none";
     uiGacha.style.display = "none";
     uiSearch.style.display = "none";
     uiLogin.style.display = "none";
-    
-    // Show selected section
     ui.style.display = "flex";
   }
   
-  // Navigation click events
-  homeLink.addEventListener("click", (e) => {
+  homeLink.addEventListener("click", function(e) {
     e.preventDefault();
     showUI(uiHome);
   });
   
-  gachaLink.addEventListener("click", (e) => {
+  gachaLink.addEventListener("click", function(e) {
     e.preventDefault();
     showUI(uiGacha);
   });
   
-  searchLink.addEventListener("click", (e) => {
+  searchLink.addEventListener("click", function(e) {
     e.preventDefault();
     showUI(uiSearch);
   });
   
-  loginLink.addEventListener("click", (e) => {
+  loginLink.addEventListener("click", function(e) {
     e.preventDefault();
     showUI(uiLogin);
   });
 
-  // CTA button to gacha
   if (btnStartGacha) {
-    btnStartGacha.addEventListener("click", () => {
+    btnStartGacha.addEventListener("click", function() {
       showUI(uiGacha);
     });
   }
   
-  // Show home page by default
   showUI(uiHome);
   
-  // ============ GACHA ROLL BUTTON ============
-  const btnRoll = document.getElementById("btnRoll");
+  var btnRoll = document.getElementById("btnRoll");
   if (btnRoll) {
     btnRoll.addEventListener("click", performGacha);
   }
   
-  // ============ SEARCH BEHAVIOR ============
-  const btnSearch = document.getElementById("btnSearch");
-  const searchInput = document.getElementById("searchInput");
+  var btnSearch = document.getElementById("btnSearch");
+  var searchInput = document.getElementById("searchInput");
   
   if (btnSearch) {
-    btnSearch.addEventListener("click", () => {
-      const query = searchInput.value.trim();
+    btnSearch.addEventListener("click", function() {
+      var query = searchInput.value.trim();
       if (query) {
-        const googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(query);
+        var googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(query);
         window.open(googleSearchUrl, '_blank');
       } else {
         alert("Masukkan kata kunci...");
@@ -273,24 +252,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   if (searchInput) {
-    searchInput.addEventListener("keypress", (e) => {
+    searchInput.addEventListener("keypress", function(e) {
       if (e.key === 'Enter') {
         btnSearch.click();
       }
     });
   }
   
-  // ============ LOGIN BEHAVIOR ============
-  const loginForm = document.getElementById("loginForm");
+  var loginForm = document.getElementById("loginForm");
   if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
+    loginForm.addEventListener("submit", function(e) {
       e.preventDefault();
-      const email = document.getElementById("email").value;
+      var email = document.getElementById("email").value;
       alert("Login berhasil! Email: " + email);
       showUI(uiHome);
     });
   }
   
-  // ============ START FLOATING SHAPES ============
   initFloatingShapes();
 });
