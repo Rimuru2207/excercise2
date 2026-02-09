@@ -10,7 +10,7 @@
   <header class="navbar">
     <div class="logo">dippp.png</div>
     <nav>
-      <a href="#" id="navHome">Home</a>
+      <a href="#" id="navHome">Gacha</a>
       <a href="#" id="navSearch">Search</a>
       <a href="https://www.instagram.com/botan.ch_/">Rafi</a>
       <a href="https://www.instagram.com/akigata_/">Contact</a>
@@ -27,6 +27,26 @@
       <div class="floating-shapes"></div>
       <h1>Selamat Datang di (under construction)</h1>
       <h2>GA ADA APA APA DISINI</h2>
+    </section>
+
+    <!-- UI Gacha (Home) -->
+    <section id="uiIndex" class="hero">
+      <div class="floating-shapes"></div>
+      <h1>🎰 GACHA SIMULATOR 🎰</h1>
+      <div class="gacha-container">
+        <div class="gacha-roll-display" id="rollDisplay">
+          <div class="roll-text">Press ROLL to start!</div>
+        </div>
+        <button id="btnRoll" class="btn-roll">🎲 ROLL NOW!</button>
+        <div class="gacha-result" id="gachaResult" style="display: none;">
+          <div class="result-card">
+            <div class="rarity-badge" id="rarityBadge"></div>
+            <img id="resultImage" src="" alt="Result" />
+            <h2 id="resultName"></h2>
+            <p id="resultDescription"></p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- UI Search -->
