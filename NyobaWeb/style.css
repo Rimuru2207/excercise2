@@ -56,12 +56,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: calc(100vh - 80px); /* kira-kira tinggi navbar */
+  justify-content: flex-start; /* Ubah dari center ke flex-start */
+  min-height: calc(100vh - 80px); /* Ubah height jadi min-height */
   text-align: center;
   padding: 20px;
+  padding-top: 40px; /* Tambahkan padding top */
+  overflow-y: auto; /* Izinkan scroll di section */
 }
-
 /* Floating shapes (dipakai di setiap section) */
 .floating-shapes {
   position: absolute;
@@ -168,6 +169,12 @@ body {
 }
 
 /* ============ GACHA STYLES ============ */
+#uiGacha {
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 60px; /* Beri ruang di bawah */
+}
+
 .gacha-container {
   display: flex;
   flex-direction: column;
@@ -175,6 +182,7 @@ body {
   gap: 24px;
   width: 100%;
   max-width: 600px;
+  margin-bottom: 40px; /* Beri jarak dari bawah */
 }
 
 #uiIndex h1 {
@@ -255,12 +263,15 @@ body {
 .gacha-result {
   width: 100%;
   animation: fadeIn 0.5s ease-in;
+  margin-top: 20px;
+  margin-bottom: 40px; /* Beri ruang di bawah */
 }
 
 .result-card {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 16px;
   padding: 32px;
+  padding-bottom: 40px; /* Tambah padding bawah */
   text-align: center;
   position: relative;
   border: 3px solid;
