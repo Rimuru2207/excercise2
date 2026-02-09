@@ -10,71 +10,92 @@
   <header class="navbar">
     <div class="logo">dippp.png</div>
     <nav>
-      <a href="#" id="navHome">Gacha</a>
+      <a href="#" id="navHome">Home</a>
+      <a href="#" id="navGacha">Gacha</a>
       <a href="#" id="navSearch">Search</a>
       <a href="https://www.instagram.com/botan.ch_/">Rafi</a>
       <a href="https://www.instagram.com/akigata_/">Contact</a>
       <a href="https://chatgpt.com/">Maid</a>
-    </nav>
+  </nav>
     <div class="actions">
       <a href="#" id="navLogin" class="btn-login">Sign Up / Login</a>
     </div>
   </header>
 
   <main>
-    <!-- UI Index -->
-    <section id="uiIndex" class="hero">
-      <div class="floating-shapes"></div>
-      <h1>Selamat Datang di (under construction)</h1>
-      <h2>GA ADA APA APA DISINI</h2>
-    </section>
-
-    <!-- UI Gacha (Home) -->
-    <section id="uiIndex" class="hero">
-      <div class="floating-shapes"></div>
-      <h1>🎰 GACHA SIMULATOR 🎰</h1>
-      <div class="gacha-container">
-        <div class="gacha-roll-display" id="rollDisplay">
-          <div class="roll-text">Press ROLL to start!</div>
+  <!-- UI Home / Landing Page -->
+  <section id="uiHome" class="hero">
+    <div class="floating-shapes"></div>
+    <div class="landing-content">
+      <h1 class="landing-title">Selamat Datang di NafCraft.net</h1>
+      <p class="landing-subtitle">Your Ultimate Gaming & Entertainment Hub</p>
+      <div class="landing-features">
+        <div class="feature-card">
+          <span class="feature-icon">🎰</span>
+          <h3>Gacha Simulator</h3>
+          <p>Try your luck with our exciting gacha system!</p>
         </div>
-        <button id="btnRoll" class="btn-roll">🎲 ROLL!</button>
-        <div class="gacha-result" id="gachaResult" style="display: none;">
-          <div class="result-card">
-            <div class="rarity-badge" id="rarityBadge"></div>
-            <img id="resultImage" src="" alt="Result" />
-            <h2 id="resultName"></h2>
-            <p id="resultDescription"></p>
-          </div>
+        <div class="feature-card">
+          <span class="feature-icon">🔍</span>
+          <h3>Smart Search</h3>
+          <p>Find anything you need instantly</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🎮</span>
+          <h3>More Coming Soon</h3>
+          <p>Stay tuned for exciting updates!</p>
         </div>
       </div>
-    </section>
-
-    <!-- UI Search -->
-    <section id="uiSearch" class="hero" style="display: none;">
-      <div class="floating-shapes"></div>
-      <h1>Pencarian</h1>
-      <input type="text" id="searchInput" placeholder="Cari sesuatu..." />
-      <button id="btnSearch">Cari</button>
-    </section>
-
-    <!-- UI Login -->
-    <section id="uiLogin" class="hero" style="display: none;">
-      <div class="floating-shapes"></div>
-      <div class="login-card">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
-          <label for="password">Kata Sandi</label>
-          <input type="password" id="password" name="password" placeholder="••••••••" required />
-          <button type="submit" class="btn-login" style="width:100%;">Login</button>
-        </form>
-        <div class="link">
-          Belum punya akun? <a href="#">Daftar di sini</a>
+      <button id="btnStartGacha" class="btn-cta">🎲 Try Gacha Now!</button>
+    </div>
+  </section>
+  
+  <!-- UI Gacha -->
+  <section id="uiGacha" class="hero" style="display: none;">
+    <div class="floating-shapes"></div>
+    <h1>🎰 GACHA SIMULATOR 🎰</h1>
+    <div class="gacha-container">
+      <div class="gacha-roll-display" id="rollDisplay">
+        <div class="roll-text">Press ROLL to start!</div>
+      </div>
+      <button id="btnRoll" class="btn-roll">🎲 ROLL NOW!</button>
+      <div class="gacha-result" id="gachaResult" style="display: none;">
+        <div class="result-card">
+          <div class="rarity-badge" id="rarityBadge"></div>
+          <img id="resultImage" src="" alt="Result" />
+          <h2 id="resultName"></h2>
+          <p id="resultDescription"></p>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+  
+  <!-- UI Search -->
+  <section id="uiSearch" class="hero" style="display: none;">
+    <div class="floating-shapes"></div>
+    <h1>Pencarian</h1>
+    <input type="text" id="searchInput" placeholder="Cari sesuatu..." />
+    <button id="btnSearch">Cari di Google</button>
+  </section>
+  
+  <!-- UI Login -->
+  <section id="uiLogin" class="hero" style="display: none;">
+    <div class="floating-shapes"></div>
+    <div class="login-card">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="email@contoh.com" required />
+        <label for="password">Kata Sandi</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required />
+        <button type="submit" class="btn-login" style="width:100%;">Login</button>
+      </form>
+      <div class="link">
+        Belum punya akun? <a href="#">Daftar di sini</a>
+      </div>
+    </div>
+  </section>
+</main>
 
   <script src="script.js"></script>
 </body>
