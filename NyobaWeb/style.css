@@ -10,8 +10,9 @@ body {
   background: radial-gradient(circle at bottom, #2c235a, #000);
   color: white;
   font-family: Arial, sans-serif;
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden; /* Cegah scroll horizontal saja */
+  overflow-y: auto;   /* Izinkan scroll vertikal */
 }
 
 /* Navbar */
