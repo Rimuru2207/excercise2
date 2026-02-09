@@ -28,11 +28,11 @@ var gachaData = [
     description: "THIS IS SPARTAA"
   },
   {
-    name: "Shadow Assassin",
+    name: "Mas Amba & King",
     rarity: "rare",
     chance: 15,
-    image: "https://picsum.photos/200?random=5",
-    description: "Strikes from the darkness"
+    image: "https://i.pinimg.com/736x/4a/74/70/4a74709b50859d47164195d06fc7a21a.jpg",
+    description: "Ketika Dua Legends Bersatu"
   },
   {
     name: "Mr Ironi",
