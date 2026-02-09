@@ -190,9 +190,13 @@ function initFloatingShapes() {
 // ============ UI SWITCHING ============
 document.addEventListener("DOMContentLoaded", () => {
   const homeLink = document.getElementById("navHome");
+  const gachaLink = document.getElementById("navGacha");
   const searchLink = document.getElementById("navSearch");
   const loginLink = document.getElementById("navLogin");
-  const uiIndex = document.getElementById("uiIndex");
+  const btnStartGacha = document.getElementById("btnStartGacha");
+  
+  const uiHome = document.getElementById("uiHome");
+  const uiGacha = document.getElementById("uiGacha");
   const uiSearch = document.getElementById("uiSearch");
   const uiLogin = document.getElementById("uiLogin");
   
@@ -217,8 +221,15 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     showUI(uiLogin);
   });
+
+    // CTA button to gacha
+  if (btnStartGacha) {
+    btnStartGacha.addEventListener("click", () => {
+      showUI(uiGacha);
+    });
+  }
   
-  showUI(uiIndex);
+  showUI(uiHome);
   
   // ============ GACHA ROLL BUTTON ============
   const btnRoll = document.getElementById("btnRoll");
