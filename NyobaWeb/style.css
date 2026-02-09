@@ -166,6 +166,185 @@ body {
   text-decoration: none;
 }
 
+/* ============ GACHA STYLES ============ */
+.gacha-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 600px;
+}
+
+#uiIndex h1 {
+  font-size: 48px;
+  margin-bottom: 32px;
+  background: linear-gradient(to right, #ffd700, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Roll Display Area */
+.gacha-roll-display {
+  width: 100%;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 3px solid #D97706;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.roll-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #D97706;
+  text-align: center;
+}
+
+.rolling-names {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: rollAnimation 0.1s linear infinite;
+}
+
+.rolling-item {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  white-space: nowrap;
+}
+
+@keyframes rollAnimation {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-80px); }
+}
+
+/* Roll Button */
+.btn-roll {
+  padding: 16px 48px;
+  background: linear-gradient(135deg, #D97706, #f59e0b);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.5);
+}
+
+.btn-roll:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(217, 119, 6, 0.7);
+}
+
+.btn-roll:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Result Card */
+.gacha-result {
+  width: 100%;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.result-card {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  border: 3px solid;
+  box-shadow: 0 0 30px;
+}
+
+.rarity-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.result-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.result-card h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.result-card p {
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+/* Rarity Colors */
+.rarity-common {
+  border-color: #9ca3af;
+  box-shadow: 0 0 30px rgba(156, 163, 175, 0.5);
+}
+.rarity-common .rarity-badge {
+  background: #9ca3af;
+  color: #000;
+}
+
+.rarity-rare {
+  border-color: #3b82f6;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+.rarity-rare .rarity-badge {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.rarity-epic {
+  border-color: #a855f7;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+}
+.rarity-epic .rarity-badge {
+  background: #a855f7;
+  color: #fff;
+}
+
+.rarity-legendary {
+  border-color: #fbbf24;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+}
+.rarity-legendary .rarity-badge {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Responsive (optional) */
 @media (max-width: 600px) {
   .navbar {
