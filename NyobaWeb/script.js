@@ -153,11 +153,12 @@ function showResult(item) {
   rarityBadge.textContent = item.rarity;
   
   // Set rarity styling
-  resultCard.className = `result-card rarity-${item.rarity}`;
+  resultCard.className = "result-card rarity-" + item.rarity;
   
   // Show result
   gachaResult.style.display = "block";
-  //Scroll ke hasil secara smooth
+  
+  // Scroll ke hasil secara smooth
   setTimeout(() => {
     gachaResult.scrollIntoView({ 
       behavior: 'smooth', 
@@ -175,12 +176,12 @@ function createShape(section) {
   const shape = document.createElement("div");
   shape.classList.add("shape");
   const size = randomInRange(50, 150);
-  shape.style.width = `${size}px`;
-  shape.style.height = `${size}px`;
-  shape.style.top = `${randomInRange(0, 70)}%`;
-  shape.style.left = `${randomInRange(0, 90)}%`;
+  shape.style.width = size + "px";
+  shape.style.height = size + "px";
+  shape.style.top = randomInRange(0, 70) + "%";
+  shape.style.left = randomInRange(0, 90) + "%";
   const duration = randomInRange(3, 8);
-  shape.style.animationDuration = `${duration}s`;
+  shape.style.animationDuration = duration + "s";
   section.querySelector(".floating-shapes").appendChild(shape);
   setTimeout(() => {
     shape.remove();
