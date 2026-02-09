@@ -245,13 +245,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // ============ LOGIN BEHAVIOR ============
-  const loginForm = document.getElementById("loginForm");
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    alert(`Login berhasil! Email: ${email}`);
-    showUI(uiIndex);
-  });
+const loginForm = document.getElementById("loginForm");
+loginForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  alert("Login berhasil! Email: " + email);  // ← DIPERBAIKI
+  showUI(uiIndex);
+});
   
   // ============ START FLOATING SHAPES ============
   initFloatingShapes();
