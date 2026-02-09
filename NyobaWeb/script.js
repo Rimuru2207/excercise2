@@ -165,7 +165,6 @@ function showResult(item) {
     });
   }, 100);
 }
-}
 
 // ============ FLOATING SHAPES ============
 function randomInRange(min, max) {
