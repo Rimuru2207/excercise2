@@ -157,6 +157,14 @@ function showResult(item) {
   
   // Show result
   gachaResult.style.display = "block";
+  //Scroll ke hasil secara smooth
+  setTimeout(() => {
+    gachaResult.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'center' 
+    });
+  }, 100);
+}
 }
 
 // ============ FLOATING SHAPES ============
