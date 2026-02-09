@@ -1,31 +1,31 @@
 var gachaData = [
   {
-    name: "Divine Dragon",
+    name: "Pak Cik Owi 😹",
     rarity: "legendary",
     chance: 2,
-    image: "https://picsum.photos/200?random=1",
-    description: "The rarest and most powerful creature!"
+    image: "https://i.pinimg.com/736x/25/96/8f/25968f31cb5169db10caba91f6ad2391.jpg",
+    description: "Pelan Sikit Pak Cik Owi"
   },
   {
-    name: "Phoenix Empress",
+    name: "Mas Amba",
     rarity: "legendary",
-    chance: 3,
-    image: "https://picsum.photos/200?random=2",
-    description: "Reborn from ashes with eternal flames"
+    chance: 2,
+    image: "https://i.pinimg.com/736x/c1/05/9f/c1059f4b30ed245f76711ae20bee9eb1.jpg",
+    description: "Oh 😹"
   },
   {
-    name: "Thunder Knight",
+    name: "Pahlawan Ngawi Si Imup",
     rarity: "epic",
     chance: 7,
-    image: "https://picsum.photos/200?random=3",
-    description: "Wields the power of lightning"
+    image: "https://i.pinimg.com/736x/ea/18/6f/ea186fd44322d2e1c851a9c15acd70ef.jpg",
+    description: "Konon Katanya Para Musuh Bermandikan Muani"
   },
   {
-    name: "Ice Sorceress",
+    name: "Mas Fuad si Jenderal Sparta",
     rarity: "epic",
     chance: 8,
-    image: "https://picsum.photos/200?random=4",
-    description: "Master of frozen magic"
+    image: "https://i.pinimg.com/736x/3b/59/66/3b5966e89d0d503fc478a4d0553c0e42.jpg",
+    description: "THIS IS SPARTAA"
   },
   {
     name: "Shadow Assassin",
@@ -35,39 +35,39 @@ var gachaData = [
     description: "Strikes from the darkness"
   },
   {
-    name: "Forest Guardian",
+    name: "Mr Ironi",
     rarity: "rare",
     chance: 15,
-    image: "https://picsum.photos/200?random=6",
-    description: "Protector of nature"
+    image: "https://i.pinimg.com/1200x/90/3b/25/903b25c3de32bbe68fd80fedb9fcfef1.jpg",
+    description: "Tolong Celananya Dipakai Yh"
   },
   {
-    name: "Brave Warrior",
+    name: "Mas Rusdi",
     rarity: "common",
     chance: 20,
-    image: "https://picsum.photos/200?random=7",
-    description: "A reliable fighter"
+    image: "https://i.pinimg.com/736x/c5/d8/f7/c5d8f70955f38593845e5f2ab517bb16.jpg",
+    description: "Bikin Si Imup Klepek Klepek"
   },
   {
-    name: "Novice Mage",
+    name: "KING 👑",
     rarity: "common",
     chance: 15,
-    image: "https://picsum.photos/200?random=8",
-    description: "Learning the arcane arts"
+    image: "https://i.pinimg.com/736x/7d/bb/7d/7dbb7ddd0cca2e940bc68dc8088ac025.jpg",
+    description: "RIP MR King"
   },
   {
-    name: "Town Guard",
+    name: "Si Imup",
     rarity: "common",
     chance: 10,
-    image: "https://picsum.photos/200?random=9",
-    description: "Keeps the peace"
+    image: "https://i.pinimg.com/736x/97/3b/cf/973bcf8d61facc58f2e29e633ac2f3a3.jpg",
+    description: "Sasimok Banget Njir"
   },
   {
-    name: "Village Healer",
+    name: "BAHLIL IRENG",
     rarity: "common",
     chance: 5,
-    image: "https://picsum.photos/200?random=10",
-    description: "Provides basic healing"
+    image: "https://i.pinimg.com/736x/ad/1e/b4/ad1eb46c5b65ea8f398e8898ebce96e6.jpg",
+    description: "Awas Jaga Nikel dan Emas Mu!!"
   }
 ];
 
