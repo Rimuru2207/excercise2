@@ -64,13 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Search behavior
   const btnSearch = document.getElementById("btnSearch");
+  const searchInput = document.getElementById("searchInput");
+  
   btnSearch.addEventListener("click", () => {
     const query = document.getElementById("searchInput").value.trim();
-    const resultDiv = document.getElementById("searchResult");
+    
     if (query) {
-      resultDiv.innerHTML = `<p>Hasil pencarian untuk: <b>${query}</b></p>`;
+      const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      window.open(googleSearchUrl, '_blank');
     } else {
-      resultDiv.innerHTML = `<p>Masukkan kata kunci...</p>`;
+    const resultDiv = document.getElementById("searchResult");
+    resultDiv.innerHTML = `<p>Masukkan kata kunci...</p>`;
     }
   });
 
