@@ -201,15 +201,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const uiLogin = document.getElementById("uiLogin");
   
   function showUI(ui) {
-    uiIndex.style.display = "none";
+    // Hide all sections
+    uiHome.style.display = "none";
+    uiGacha.style.display = "none";
     uiSearch.style.display = "none";
     uiLogin.style.display = "none";
+    
+    // Show selected section
     ui.style.display = "flex";
   }
   
+  // Navigation click events
   homeLink.addEventListener("click", (e) => {
     e.preventDefault();
-    showUI(uiIndex);
+    showUI(uiHome);
+  });
+  
+  gachaLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    showUI(uiGacha);
   });
   
   searchLink.addEventListener("click", (e) => {
@@ -222,47 +232,56 @@ document.addEventListener("DOMContentLoaded", () => {
     showUI(uiLogin);
   });
 
-    // CTA button to gacha
+  // CTA button to gacha
   if (btnStartGacha) {
     btnStartGacha.addEventListener("click", () => {
       showUI(uiGacha);
     });
   }
   
+  // Show home page by default
   showUI(uiHome);
   
   // ============ GACHA ROLL BUTTON ============
   const btnRoll = document.getElementById("btnRoll");
-  btnRoll.addEventListener("click", performGacha);
+  if (btnRoll) {
+    btnRoll.addEventListener("click", performGacha);
+  }
   
   // ============ SEARCH BEHAVIOR ============
   const btnSearch = document.getElementById("btnSearch");
   const searchInput = document.getElementById("searchInput");
   
-  btnSearch.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-    if (query) {
-      const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-      window.open(googleSearchUrl, '_blank');
-    } else {
-      alert("Masukkan kata kunci...");
-    }
-  });
+  if (btnSearch) {
+    btnSearch.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        const googleSearchUrl = "https://www.google.com/search?q=" + encodeURIComponent(query);
+        window.open(googleSearchUrl, '_blank');
+      } else {
+        alert("Masukkan kata kunci...");
+      }
+    });
+  }
   
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === 'Enter') {
-      btnSearch.click();
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter') {
+        btnSearch.click();
+      }
+    });
+  }
   
   // ============ LOGIN BEHAVIOR ============
-const loginForm = document.getElementById("loginForm");
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
-  alert("Login berhasil! Email: " + email);  // ← DIPERBAIKI
-  showUI(uiIndex);
-});
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      alert("Login berhasil! Email: " + email);
+      showUI(uiHome);
+    });
+  }
   
   // ============ START FLOATING SHAPES ============
   initFloatingShapes();
