@@ -69,7 +69,7 @@ h1 {
   padding: 14px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  max-width: 460px;
+  max-width: 500px; /* Sedikit dilebarkan agar teks bernapas */
   width: 100%;
 }
 
@@ -77,10 +77,17 @@ h1 {
   aspect-ratio: 1 / 1;
   background: var(--cell);
   border-radius: 10px;
+  
+  /* PENGATURAN TEKS RATA TENGAH & KELAYAKAN BACA */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: clamp(1rem, 4vw, 1.4rem);
+  align-items: center;       /* Rata tengah vertikal */
+  justify-content: center;   /* Rata tengah horizontal */
+  text-align: center;        /* Teks turun baris tetap rata tengah */
+  padding: 6px;              /* Memberi jarak teks agar tidak menabrak tepi */
+  font-size: clamp(0.55rem, 2.2vw, 0.85rem); /* Diperkecil agar kalimat panjang muat */
+  line-height: 1.25;         /* Jarak antar baris yang rapi */
+  word-break: break-word;    /* Mencegah kata terlalu panjang keluar kotak */
+  
   font-weight: 600;
   cursor: pointer;
   user-select: none;
