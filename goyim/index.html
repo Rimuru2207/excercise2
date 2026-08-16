@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bingo 5x5</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎉 BINGO 5x5</h1>
+  <p class="subtitle">Klik kotak untuk menandainya. Kumpulkan 5 kotak sejajar (horizontal, vertikal, atau diagonal) untuk BINGO!</p>
+
+  <div class="status-bar">
+    <div class="badge">Jumlah Bingo: <span id="bingoCount">0</span></div>
+    <div class="badge">Kotak Terpilih: <span id="selectedCount">0 / 25</span></div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="controls">
+    <button id="resetBtn" class="secondary">🧹 Reset Pilihan</button>
+  </div>
+
+  <div id="bingoToast">BINGO!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
